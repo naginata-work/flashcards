@@ -281,12 +281,16 @@
   });
 
   document.getElementById('langBtn').textContent = lang === 'ja' ? 'EN' : 'JA';
-  if (cards.length === 0) {
+  function hasSeeded() { try { return localStorage.getItem('flashcardsSeeded') === '1'; } catch (e) { return true; } }
+  function markSeeded() { try { localStorage.setItem('flashcardsSeeded', '1'); } catch (e) {} }
+  if (cards.length === 0 && !hasSeeded()) {
     cards = [
       { front: 'Hello', back: 'こんにちは' },
       { front: 'Thank you', back: 'ありがとう' },
       { front: 'Good morning', back: 'おはよう' }
     ];
+    saveCards(cards);
+    markSeeded();
   }
   resetStudy();
   renderStaticText();
