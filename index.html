@@ -93,7 +93,25 @@
     </div>
   </div>
 
+  <div class="card" style="font-size:13px; line-height:1.9; color:var(--sub);">
+    <h2 id="aboutTitle" style="font-size:15px; color:var(--text); margin:0 0 8px;"></h2>
+    <p id="aboutBody1" style="margin:0 0 10px;"></p>
+    <p id="aboutBody2" style="margin:0;"></p>
+  </div>
+
+  <div class="card" style="font-size:13px; line-height:1.9; color:var(--sub);">
+    <h2 id="faqTitle" style="font-size:15px; color:var(--text); margin:0 0 10px;"></h2>
+    <p id="faq1Q" style="margin:0 0 4px; color:var(--text); font-weight:bold;"></p>
+    <p id="faq1A" style="margin:0 0 12px;"></p>
+    <p id="faq2Q" style="margin:0 0 4px; color:var(--text); font-weight:bold;"></p>
+    <p id="faq2A" style="margin:0;"></p>
+  </div>
+
   <p class="footer-links" id="footerLinks"></p>
+  <p style="text-align:center; font-size:11px; color:var(--sub); margin-top:4px;">
+    <a href="https://naginata-work.github.io/" style="color:var(--sub);" id="allToolsLink"></a> ・
+    <a href="https://naginata-work.github.io/privacy.html" style="color:var(--sub);" id="privacyLink"></a>
+  </p>
 </div>
 
 <script>
@@ -114,7 +132,15 @@
       emptyMsg: 'カードがありません。「カードを管理」から追加してください。',
       finishedMsg: '全カード終了!もう一度学習するには再読み込みしてください。',
       removeConfirm: '削除しますか?',
-      footerLinks: '他のツールも作っています → <a href="https://naginata-work.github.io/text-tools/" target="_blank" rel="noopener">文字数カウント</a> / <a href="https://naginata-work.github.io/habit-tracker/" target="_blank" rel="noopener">習慣トラッカー</a>'
+      footerLinks: '他のツールも作っています → <a href="https://naginata-work.github.io/text-tools/" target="_blank" rel="noopener">文字数カウント</a> / <a href="https://naginata-work.github.io/habit-tracker/" target="_blank" rel="noopener">習慣トラッカー</a>',
+      aboutTitle: 'フラッシュカード学習法について',
+      aboutBody1: '英単語、資格試験の用語、歴史の年号など、「問題と答え」のペアを覚える暗記学習には、紙の単語カードをめくって確認する方法が昔から効果的とされています。このツールはその仕組みをそのままブラウザ上で再現しています。',
+      aboutBody2: '「カードを管理」タブで表面(問題)と裏面(答え)を登録すると、「学習する」タブでカードがシャッフルされた順番で1枚ずつ出題されます。カードをタップすると答えが表示され、「覚えた」「もう一度」のどちらかを選ぶと次のカードに進みます。「もう一度」を選んだカードは、その回の最後にもう一度出題されます。',
+      faqTitle: 'よくある質問',
+      faq1Q: '登録したカードは保存される?',
+      faq1A: 'はい。ブラウザに自動保存されるため、ページを閉じて後日開いても同じカードが残っています。別の端末とは共有されません。',
+      faq2Q: '英単語以外の暗記にも使える?',
+      faq2A: 'もちろんです。表面・裏面には好きな文字を自由に入力できるので、資格試験の用語、歴史の年号、プログラミングの構文など、どんな「問題と答え」のペアにも使えます。',
     },
     en: {
       title: '🗂️ Flashcards',
@@ -132,7 +158,15 @@
       emptyMsg: 'No cards yet. Add some from "Manage cards".',
       finishedMsg: 'Done with all cards! Reload the page to study again.',
       removeConfirm: 'Delete this card?',
-      footerLinks: 'Also made these → <a href="https://naginata-work.github.io/text-tools/" target="_blank" rel="noopener">Text Counter</a> / <a href="https://naginata-work.github.io/habit-tracker/" target="_blank" rel="noopener">Habit Tracker</a>'
+      footerLinks: 'Also made these → <a href="https://naginata-work.github.io/text-tools/" target="_blank" rel="noopener">Text Counter</a> / <a href="https://naginata-work.github.io/habit-tracker/" target="_blank" rel="noopener">Habit Tracker</a>',
+      aboutTitle: 'About flashcard-style learning',
+      aboutBody1: "Memorizing vocabulary, exam terminology, historical dates, or any question-and-answer pair has long been done well with paper flashcards you flip through. This tool recreates that same process in the browser.",
+      aboutBody2: 'Add a front (question) and back (answer) under "Manage cards," then switch to "Study" to go through them in a shuffled order. Tap a card to reveal the answer, then choose "Got it" or "Again" — cards marked "Again" come back around at the end of that session.',
+      faqTitle: 'FAQ',
+      faq1Q: 'Are my cards saved?',
+      faq1A: "Yes, they're saved automatically in your browser, so they're still there if you close the page and come back later. They aren't shared across different devices.",
+      faq2Q: 'Is this only for vocabulary?',
+      faq2A: "Not at all. The front and back accept any text, so it works just as well for exam terms, historical dates, programming syntax, or any other question-and-answer pair you want to memorize.",
     }
   };
 
@@ -269,6 +303,18 @@
     document.getElementById('againBtn').textContent = t().againBtn;
     document.getElementById('gotItBtn').textContent = t().gotItBtn;
     document.getElementById('footerLinks').innerHTML = t().footerLinks;
+    document.getElementById('aboutTitle').textContent = t().aboutTitle;
+    document.getElementById('aboutBody1').textContent = t().aboutBody1;
+    document.getElementById('aboutBody2').textContent = t().aboutBody2;
+    document.getElementById('faqTitle').textContent = t().faqTitle;
+    document.getElementById('faq1Q').textContent = t().faq1Q;
+    document.getElementById('faq1A').textContent = t().faq1A;
+    document.getElementById('faq2Q').textContent = t().faq2Q;
+    document.getElementById('faq2A').textContent = t().faq2A;
+    document.getElementById('allToolsLink').textContent = lang === 'ja' ? '他のツール一覧' : 'All tools';
+    document.getElementById('allToolsLink').href = 'https://naginata-work.github.io/';
+    document.getElementById('privacyLink').textContent = lang === 'ja' ? 'プライバシーポリシー' : 'Privacy policy';
+    document.getElementById('privacyLink').href = 'https://naginata-work.github.io/privacy.html';
     renderCardList();
     renderStudy();
   }
