@@ -118,6 +118,9 @@
 </div>
 
 <script>
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  }
   const I18N = {
     ja: {
       title: '🗂️ フラッシュカード学習ツール',
@@ -261,7 +264,7 @@
     cards.forEach((c, idx) => {
       const row = document.createElement('div');
       row.className = 'card-list-item';
-      row.innerHTML = `<span>${c.front} → ${c.back}</span><button class="remove">×</button>`;
+      row.innerHTML = `<span>${escapeHtml(c.front)} → ${escapeHtml(c.back)}</span><button class="remove">×</button>`;
       row.querySelector('.remove').addEventListener('click', () => {
         if (!confirm(t().removeConfirm)) return;
         cards.splice(idx, 1);
